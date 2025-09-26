@@ -85,6 +85,11 @@
         const withdrawBtn = document.getElementById("withdrawBtn");
         withdrawBtn.addEventListener("click", function(){  
             const withdrawNumber = getInputNumber("withdrawAmount");
+
+            updateSpantext("currentWithdraw", withdrawNumber);
+            updateSpantext("CurrentBalance", -1 * withdrawNumber);
+
+            document.getElementById("withdrawAmount").value = "";
             
         })
 
@@ -95,11 +100,11 @@
         }
 
 
-        function updateSpantext(id, depositNumber){
+        function updateSpantext(id, DWNumber){
             const Current = document.getElementById(id).innerText;
             const CurrentNumber = parseFloat(Current);
-            const totalAmountAfterDeposit = depositNumber + CurrentNumber;
-            document.getElementById(id).innerText = totalAmountAfterDeposit;
+            const totalDWAmount = DWNumber + CurrentNumber;
+            document.getElementById(id).innerText = totalDWAmount;
 
         }
 
